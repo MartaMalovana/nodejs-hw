@@ -4,7 +4,7 @@ const {Contact} = require("../../models");
 async function updateStatusContact (req, res, next) {
       const {contactId} = req.params;
       const {favorite} = req.body;
-      console.log(favorite);
+      
       if(!req.body){
         throw createError(400, "Missing field favorite"); 
       }
