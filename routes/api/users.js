@@ -5,6 +5,8 @@ const {joiUserSchema, joiSubscriptionSchema, joiAvatarsSchema} = require("../../
 const {authCtrl} = require("../../controllers");
 
 router.post("/signup", validation(joiUserSchema), ctrlWrapper(authCtrl.register));
+router.get("/verify/:verificationToken", ctrlWrapper(authCtrl.verificationEmail));
+router.post("/verify/", ctrlWrapper(authCtrl.verifyRequest));
 router.post("/login", validation(joiUserSchema), ctrlWrapper(authCtrl.login));
 router.get("/current", auth, authCtrl.getCurrent);
 router.get("/logout", auth, authCtrl.logout);
